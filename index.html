@@ -1,45 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashant Kumar Pandey - Home</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Prashant Kumar Pandey - Home</title>
+ <style>
+ body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+ }
+ 
+ .nav {
+   background-color: #4CAF50; /* Green background */
+   padding: 10px;
+   text-align: center;
+ }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-        }
+ .nav a {
+   color: white; /* White text */
+   padding: 14px 20px;
+   text-decoration: none;
+   margin: 0 5px;
+   border-radius: 4px;
+   transition: background-color 0.3s;
+ }
 
-        .profile {
-            text-align: center;
-        }
+ .nav a:hover {
+   background-color: #45a049; /* Darker green on hover */
+ }
 
-        .profile img {
-            width: 200px; /* or your desired width */
-            border-radius: 10px;
-            display: block;
-            margin: 0 auto 10px;
-        }
+ .welcome {
+   text-align: center;
+   padding: 20px;
+   background-color: #e0f7fa;
+   border-radius: 8px;
+   margin: 20px 0;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
 
-        /* ... Rest of your styles ... */
+ .container {
+   max-width: 900px;
+   margin: 20px auto;
+   background: white;
+   padding: 20px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+ }
 
-    </style>
+ .profile {
+   text-align: center;
+ }
+
+ .profile img {
+   max-width: 100%; /* Preserve aspect ratio */
+   height: auto; /* Automatic height to maintain aspect ratio */
+   border-radius: 10px;
+   margin: 0 auto 10px;
+ }
+
+ .quote {
+   text-align: center;
+   font-style: italic;
+   color: #555;
+ }
+ 
+ /* Additional styles ... */
+ </style>
 </head>
 <body>
+
+ <div class="nav">
+   <a href="#about">Home</a>
+   <a href="publications.html">Publications</a>
+   <a href="teaching.html">Teaching</a>
+   <a href="codes.html">Codes</a>
+   <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
+ </div>
+
+ <div class="welcome">
+   <h1>Welcome to My Homepage!</h1>
+   <p>Explore my work, research interests, and publications.</p>
+ </div>
 
     <div class="nav">
         <a href="#about">Home</a>
