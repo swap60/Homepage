@@ -3,112 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prashant Kumar Pandey - Assistant Professor of Mathematics, specializing in numerical methods for hyperbolic PDEs.">
+    <meta name="keywords" content="Prashant Kumar Pandey, Mathematics, Research, Numerical Methods, AI">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css ">
+    <link href=" https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap " rel="stylesheet">
     <title>Prashant Kumar Pandey - Home</title>
-
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-        }
-        .profile {
-            text-align: center;
-        }
-        .profile img {
-            width: 200px;
-            border-radius: 10px;
-            display: block;
-            margin: 0 auto 10px;
-        }
-        .content {
-            width: 100%;
-            padding-top: 20px;
+        header {
+            background: #005999;
+            color: white;
+            padding: 10px 0;
         }
         .nav {
             display: flex;
             justify-content: center;
-            background: #333;
-            padding: 10px;
         }
         .nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
+            margin: 0 15px;
+            transition: color 0.3s;
         }
         .nav a:hover {
-            background: #555;
+            color: #ffd700;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
         }
         .links a {
             display: inline-block;
-            margin: 5px 10px;
-            color: #0077cc;
+            margin: 10px;
+            padding: 5px 10px;
+            background: #005999;
+            color: white;
+            border-radius: 5px;
             text-decoration: none;
+            transition: background 0.3s;
         }
         .links a:hover {
-            text-decoration: underline;
+            background: #ffd700;
         }
         .quote {
             font-style: italic;
-            font-size: 22px;
-            color: #004d99;
-            font-family: "Georgia", serif;
+            margin-top: 20px;
+        }
+        footer {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #ddd;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #005999;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="publications.html">Publications</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="codes.html">Codes</a>
-        <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
-    </div>
-    
+    <header>
+        <div class="nav">
+            <a href="#about">About Me</a>
+            <a href="#research">Research</a>
+            <a href="#contact">Contact</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </header>
     <div class="container">
         <div class="profile">
-            <img src="My-image.jpeg" alt="Prashant Kumar Pandey">
-            <h2>Prashant Kumar Pandey</h2>
-            <p>Assistant Professor of Mathematics, <a href="https://poornima.edu.in/" target="_blank">Amity University</a></p>
-            <p>HEC core capital area Nayasarai, Jharkhand, Ranchi, India, 835303</p>
-        </div>
-        <div class="content">
-            <h2>About Me</h2>
-            <p>I am a researcher working on numerical methods for hyperbolic PDEs, integrating AI and machine learning techniques for robust solvers.</p>
-            
-            <h3>Research Interests</h3>
-            <ul>
-                <li>High-resolution numerical solvers for hyperbolic PDEs</li>
-                <li>Entropy-stable schemes for degenerate parabolic equations</li>
-                <li>Optimization-based numerical viscosity</li>
-                <li>Integration of AI and deep learning in numerical analysis</li>
-                <li>My goal is to integrate quantum-inspired algorithms in scientific computing and numerical schemes.</li>
-            </ul>
-            
-            <h3>Research Profiles</h3>
-            <div class="links">
-                <a href="https://www.researchgate.net/profile/Prashant-Kumar-Pandey" target="_blank">ResearchGate</a>
-                <a href="https://www.linkedin.com/in/prashant-pandey-52b04356/" target="_blank">LinkedIn</a>
-                <a href="https://scholar.google.com/citations?hl=en&tzom=-330&user=r31rd1cAAAAJ" target="_blank">Google Scholar</a>
-                <a href="https://orcid.org/0000-0001-9321-6844" target="_blank">ORCID</a>
-                <a href="https://www.scopus.com/authid/detail.uri?authorId=57426381400" target="_blank">Scopus</a>
+            <img src="My-image.jpeg" alt="Portrait of Prashant Kumar Pandey, Assistant Professor of Mathematics">
+            <div>
+                <h1>Prashant Kumar Pandey</h1>
+                <h2>Assistant Professor, Mathematics</h2>
+                <div class="links">
+                    <a href=" https://github.com/PrashantPandey " target="_blank">GitHub</a>
+                    <a href=" https://www.researchgate.net/profile/Prashant-Kumar-Pandey " target="_blank">ResearchGate</a>
+                </div>
             </div>
         </div>
-        <p class="quote">"Mathematics is the representation of the artistic feature of nature."</p>
-    </div>
-</body>
-</html>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am an Assistant Professor with a focus on numerical methods applied to hyperbolic partial differential equations...</p>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <p>My primary research interests include...</p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <p>Click on a project to learn more!</p>
+            <div class="project" onclick="alert('Project 1 details...')">
+                <h3>Project 1</h3>
+                <p>Description of Project 1...</p>
+            </div>
+            <div class="project" onclick="alert('Project 2 details...')">
+                <h3>Project 2</h3>
+                <p>Description of Project 2...</p>
+            </div>
+        </section>
+
+        <p class="quote">"Mathematics is the representation of the
