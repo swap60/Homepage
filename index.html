@@ -83,45 +83,4 @@
         <p class="quote">"Mathematics is the representation of the artistic feature of nature."</p>
     </div>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project Title</h2>
-            <p>Details about the project would be displayed here, including purpose, methodology, and outcomes.</p>
-        </div>
-    </div>
 
-    <script>
-        // Modal functionality
-        const modal = document.getElementById("myModal");
-        const closeModal = document.getElementsByClassName("close")[0];
-
-        document.querySelectorAll('.links a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default anchor click behavior
-                modal.style.display = "block"; // Display the modal
-            });
-        });
-
-        closeModal.onclick = function() {
-            modal.style.display = "none"; // Hide the modal when the close button is clicked
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none"; // Hide modal if click outside of the modal
-            }
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('.nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-</html>
