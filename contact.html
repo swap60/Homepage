@@ -263,11 +263,25 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             color: var(--text);
-            margin-bottom: 25px;
+            margin-bottom: 10px;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            padding: 10px 14px;
+            background: #fef3c7;
+            border-left: 3px solid var(--accent);
+            border-radius: 6px;
+        }
+
+        [data-theme="dark"] .form-note {
+            background: rgba(201,162,39,0.15);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
@@ -275,14 +289,14 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px 16px;
+            padding: 10px 14px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -301,13 +315,13 @@
         }
 
         .form-group textarea {
-            min-height: 120px;
+            min-height: 100px;
             resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             border: none;
@@ -322,6 +336,25 @@
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(26,95,42,0.3);
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent), #a08020);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201,162,39,0.3);
         }
 
         .map-section {
@@ -395,6 +428,7 @@
             <a href="books.html">Books</a>
             <a href="projects.html">Projects</a>
             <a href="achievements.html">Achievements</a>
+            <a href="contact.html">Contact</a>
             <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
         </div>
     </nav>
@@ -414,8 +448,8 @@
                     <div class="contact-icon">📧</div>
                     <div class="contact-detail">
                         <h4>Email</h4>
-                        <a href="mailto:prashant.has.pandey@gamil.com">prashant.pandey@amity.edu</a>
-                        <p style="margin-top: 2px;"><a href="mailto:pkapndey@rnc.amity.edu">swap60@gmail.com</a></p>
+                        <a href="mailto:prashant.pandey@amity.edu">prashant.pandey@amity.edu</a>
+                        <p style="margin-top: 2px;"><a href="mailto:swap60@gmail.com">swap60@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -435,7 +469,7 @@
                     <div class="contact-detail">
                         <h4>Phone</h4>
                         <p>+91-XXXXXXXXXX (Office)<br>
-                        +919677169181 (Mobile)</p>
+                        +91-XXXXXXXXXX (Mobile)</p>
                     </div>
                 </div>
 
@@ -443,8 +477,8 @@
                     <div class="contact-icon">🕐</div>
                     <div class="contact-detail">
                         <h4>Office Hours</h4>
-                        <p>Monday — Friday: 10:00 AM — 5:30 PM IST<br>
-                        ()</p>
+                        <p>Monday — Friday: 10:00 AM — 4:00 PM IST<br>
+                        (By appointment preferred)</p>
                     </div>
                 </div>
 
@@ -461,6 +495,24 @@
 
             <div class="contact-form-card">
                 <h3>Send a Message</h3>
+
+                <div class="form-note">
+                    💡 <strong>Quick Contact:</strong> Click the button below to open your email client with a pre-filled message. No signup required!
+                </div>
+
+                <!-- OPTION 1: Mailto link (works immediately, no backend needed) -->
+                <a href="mailto:prashant.pandey@amity.edu?subject=Research%20Collaboration%20Inquiry&body=Dear%20Dr.%20Pandey,%0A%0AI%20came%20across%20your%20website%20and%20would%20like%20to%20discuss%20...%0A%0ABest%20regards," 
+                   class="email-btn">
+                    📧 Open Email Client
+                </a>
+
+                <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                    Or fill out the form below (requires Formspree setup):
+                </p>
+
+                <!-- OPTION 2: Formspree form (replace YOUR_FORM_ID with actual ID from formspree.io) -->
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -487,8 +539,8 @@
                     </div>
                     <button type="submit" class="submit-btn">Send Message →</button>
                 </form>
-                <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-                    Powered by Formspree. You'll receive a confirmation email.
+                <p style="margin-top: 10px; font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+                    🔧 To enable this form, sign up at <a href="https://formspree.io" target="_blank" style="color: var(--primary);">formspree.io</a> and replace YOUR_FORM_ID.
                 </p>
             </div>
         </div>
