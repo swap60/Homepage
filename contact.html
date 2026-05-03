@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Prashant Kumar Pandey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f2a;
+            --primary-light: #2d8a42;
+            --primary-dark: #0d3d1a;
+            --accent: #c9a227;
+            --accent-light: #e8d48b;
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a5a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1115;
+            --card-bg: #1a1d23;
+            --text: #e8e8ec;
+            --text-light: #a0a0b0;
+            --text-muted: #6b7280;
+            --border: #2a2d35;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            padding: 16px 22px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav a:hover::after { width: 60%; }
+
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0a2a12 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-info-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .contact-info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-item:last-child { border-bottom: none; }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-detail h4 {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .contact-detail p, .contact-detail a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(26,95,42,0.25);
+        }
+
+        .contact-form-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .contact-form-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,95,42,0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26,95,42,0.3);
+        }
+
+        .map-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .map-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .map-placeholder .pin {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0a2a12 100%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .nav-inner { flex-wrap: wrap; gap: 0; }
+            .nav a { padding: 12px 14px; font-size: 0.85rem; }
+            .theme-toggle { top: 70px; right: 10px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="codes.html">Codes</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="books.html">Books</a>
+            <a href="projects.html">Projects</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Get In Touch</h1>
+        <p>Open to collaborations, research discussions, and opportunities in numerical analysis & scientific computing.</p>
+    </section>
+
+    <div class="main-wrapper">
+
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <h3>Contact Information</h3>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-detail">
+                        <h4>Email</h4>
+                        <a href="mailto:prashant.pandey@amity.edu">prashant.pandey@amity.edu</a>
+                        <p style="margin-top: 2px;"><a href="mailto:swap60@gmail.com">swap60@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🏛️</div>
+                    <div class="contact-detail">
+                        <h4>Office Address</h4>
+                        <p>Department of Mathematics<br>
+                        Amity University, Ranchi Campus<br>
+                        HEC Core Capital Area, Nayasarai<br>
+                        Jharkhand, India — 835303</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-detail">
+                        <h4>Phone</h4>
+                        <p>+91-XXXXXXXXXX (Office)<br>
+                        +91-XXXXXXXXXX (Mobile)</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div class="contact-detail">
+                        <h4>Office Hours</h4>
+                        <p>Monday — Friday: 10:00 AM — 4:00 PM IST<br>
+                        (By appointment preferred)</p>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 25px; margin-bottom: 15px; font-size: 1.1rem; color: var(--text);">Connect Online</h4>
+                <div class="social-links">
+                    <a href="https://www.researchgate.net/profile/Prashant-Pandey-25" target="_blank" class="social-link" title="ResearchGate">📊</a>
+                    <a href="https://www.linkedin.com/in/dr-prashant-kumar-pandey-52b04356/" target="_blank" class="social-link" title="LinkedIn">💼</a>
+                    <a href="https://scholar.google.com/citations?hl=en&tzom=-330&user=r31rd1cAAAAJ" target="_blank" class="social-link" title="Google Scholar">🎓</a>
+                    <a href="https://orcid.org/0000-0001-9321-6844" target="_blank" class="social-link" title="ORCID">🆔</a>
+                    <a href="https://github.com/swap60" target="_blank" class="social-link" title="GitHub">💻</a>
+                    <a href="https://www.scopus.com/authid/detail.uri?authorId=57426381400" target="_blank" class="social-link" title="Scopus">📚</a>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h3>Send a Message</h3>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="collaboration">Research Collaboration</option>
+                            <option value="phd">PhD Supervision Inquiry</option>
+                            <option value="talk">Invited Talk / Workshop</option>
+                            <option value="review">Paper Review Request</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message →</button>
+                </form>
+                <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+                    Powered by Formspree. You'll receive a confirmation email.
+                </p>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h3>📍 Find Me Here</h3>
+            <div class="map-placeholder">
+                <div class="pin">📍</div>
+                <p>Amity University, Ranchi</p>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Jharkhand, India</p>
+            </div>
+            <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                💡 <strong>Tip:</strong> Replace this with an embedded Google Map iframe for a real interactive map.
+            </p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Prashant Kumar Pandey. Built with passion for mathematics and code.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Hosted on <a href="https://github.com/swap60/Homepage" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    </script>
+
+</body>
+</html>

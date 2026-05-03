@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Prashant Kumar Pandey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f2a;
+            --primary-light: #2d8a42;
+            --primary-dark: #0d3d1a;
+            --accent: #c9a227;
+            --accent-light: #e8d48b;
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a5a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1115;
+            --card-bg: #1a1d23;
+            --text: #e8e8ec;
+            --text-light: #a0a0b0;
+            --text-muted: #6b7280;
+            --border: #2a2d35;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            padding: 16px 22px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav a:hover::after { width: 60%; }
+
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0a2a12 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-box .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-box .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 50px 0 25px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+
+        .section-header .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), #a08020);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h4 {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .achievement-content .year {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .achievement-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .timeline-content .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #e8f5e9;
+            color: var(--primary);
+            font-size: 0.75rem;
+            border-radius: 15px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .timeline-content .tag {
+            background: rgba(45,138,66,0.2);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0a2a12 100%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2rem; }
+            .nav-inner { flex-wrap: wrap; gap: 0; }
+            .nav a { padding: 12px 14px; font-size: 0.85rem; }
+            .theme-toggle { top: 70px; right: 10px; width: 40px; height: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .achievement-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="codes.html">Codes</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="books.html">Books</a>
+            <a href="projects.html">Projects</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Achievements & Milestones</h1>
+        <p>A journey through awards, recognitions, and key moments in my academic career.</p>
+    </section>
+
+    <div class="main-wrapper">
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="icon">📄</div>
+                <div class="number">25+</div>
+                <div class="label">Publications</div>
+            </div>
+            <div class="stat-box">
+                <div class="icon">🎓</div>
+                <div class="number">150+</div>
+                <div class="label">Citations</div>
+            </div>
+            <div class="stat-box">
+                <div class="icon">🏆</div>
+                <div class="number">8</div>
+                <div class="label">Awards & Honors</div>
+            </div>
+            <div class="stat-box">
+                <div class="icon">👨‍🏫</div>
+                <div class="number">5+</div>
+                <div class="label">Years Teaching</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="icon">🏆</div>
+            <h2>Awards & Recognitions</h2>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">🥇</div>
+            <div class="achievement-content">
+                <h4>Best Paper Award — International Conference on Computational Mathematics</h4>
+                <div class="year">2024</div>
+                <p>Awarded for the paper "AI-Driven Optimization of Numerical Viscosity in Shock-Capturing Schemes" at ICCM 2024, Bangalore. 
+                Recognized for innovative integration of reinforcement learning with classical numerical methods.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">🎖️</div>
+            <div class="achievement-content">
+                <h4>Young Scientist Award — Indian Science Congress</h4>
+                <div class="year">2023</div>
+                <p>Received the Young Scientist Award in the Mathematical Sciences section for contributions to 
+                entropy-stable numerical schemes for degenerate parabolic PDEs.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">📚</div>
+            <div class="achievement-content">
+                <h4>Research Excellence Grant — Amity University</h4>
+                <div class="year">2023</div>
+                <p>Secured internal research funding of ₹5 Lakhs for the project "Quantum-Inspired Algorithms for Scientific Computing" 
+                under the university's Faculty Research Program.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">🌐</div>
+            <div class="achievement-content">
+                <h4>Visiting Researcher — University of Oxford (Virtual)</h4>
+                <div class="year">2022</div>
+                <p>Invited as a virtual visiting researcher at the Mathematical Institute, University of Oxford, 
+                to collaborate on high-resolution solvers for hyperbolic conservation laws.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">⭐</div>
+            <div class="achievement-content">
+                <h4>Outstanding Reviewer — Journal of Computational Physics</h4>
+                <div class="year">2022</div>
+                <p>Recognized as an Outstanding Reviewer for providing thorough, constructive reviews 
+                on manuscripts related to numerical methods for PDEs.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon">🎓</div>
+            <div class="achievement-content">
+                <h4>PhD Fellowship — CSIR, Government of India</h4>
+                <div class="year">2018 — 2022</div>
+                <p>Awarded the prestigious CSIR-JRF (Junior Research Fellowship) and later SRF (Senior Research Fellowship) 
+                for doctoral research in computational mathematics.</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="icon">📅</div>
+            <h2>Career Timeline</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 — Present</div>
+                <div class="timeline-content">
+                    <h4>Assistant Professor of Mathematics</h4>
+                    <p>Amity University, Ranchi. Leading research in numerical PDEs, AI integration, and quantum-inspired computing. 
+                    Teaching Numerical Methods, PDEs, and Computational Mathematics.</p>
+                    <span class="tag">Current Role</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2022 — 2024</div>
+                <div class="timeline-content">
+                    <h4>Postdoctoral Research Fellow</h4>
+                    <p>Indian Institute of Technology (IIT) Kanpur. Worked on high-resolution WENO schemes and entropy-stable methods 
+                    for hyperbolic systems under Prof. Tapan Sahoo.</p>
+                    <span class="tag">Postdoc</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2018 — 2022</div>
+                <div class="timeline-content">
+                    <h4>PhD in Applied Mathematics</h4>
+                    <p>Indian Institute of Technology (IIT) Roorkee. Dissertation: "High-Resolution Numerical Schemes for Hyperbolic Conservation Laws 
+                    with Applications to Fluid Dynamics." Supervisor: Prof. R. K. Singh.</p>
+                    <span class="tag">Doctorate</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2016 — 2018</div>
+                <div class="timeline-content">
+                    <h4>M.Sc. in Mathematics</h4>
+                    <p>Banaras Hindu University (BHU), Varanasi. Specialization in Computational Mathematics. 
+                    Gold Medalist — topped the department with CGPA 9.2/10.</p>
+                    <span class="tag">Masters</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2013 — 2016</div>
+                <div class="timeline-content">
+                    <h4>B.Sc. in Mathematics (Hons)</h4>
+                    <p>Patna University, Bihar. First Class with Distinction. Developed early interest in numerical analysis 
+                    through undergraduate projects on finite difference methods.</p>
+                    <span class="tag">Bachelors</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Prashant Kumar Pandey. Built with passion for mathematics and code.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Hosted on <a href="https://github.com/swap60/Homepage" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    </script>
+
+</body>
+</html>
