@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Prashant Kumar Pandey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f2a;
+            --primary-light: #2d8a42;
+            --primary-dark: #0d3d1a;
+            --accent: #c9a227;
+            --accent-light: #e8d48b;
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a5a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f1115;
+            --card-bg: #1a1d23;
+            --text: #e8e8ec;
+            --text-light: #a0a0b0;
+            --text-muted: #6b7280;
+            --border: #2a2d35;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            padding: 16px 22px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav a:hover::after { width: 60%; }
+
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0a2a12 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0 25px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+
+        .section-header .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .blog-card .blog-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card .blog-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .blog-card .blog-content {
+            padding: 24px;
+        }
+
+        .blog-card .blog-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .blog-card .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-card .read-more:hover { gap: 10px; }
+
+        .blog-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .blog-card .tag {
+            padding: 4px 10px;
+            background: #e8f5e9;
+            color: var(--primary);
+            font-size: 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .blog-card .tag {
+            background: rgba(45,138,66,0.2);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0a2a12 100%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-inner { flex-wrap: wrap; gap: 0; }
+            .nav a { padding: 12px 14px; font-size: 0.85rem; }
+            .theme-toggle { top: 70px; right: 10px; width: 40px; height: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="codes.html">Codes</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="books.html">Books</a>
+            <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Thoughts & Writings</h1>
+        <p>Explorations in mathematics, computation, AI, and the philosophy of science.</p>
+    </section>
+
+    <div class="main-wrapper">
+
+        <div class="section-header">
+            <div class="icon">✍️</div>
+            <h2>All Blog Posts</h2>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-img">🧮</div>
+                <div class="blog-content">
+                    <div class="blog-date">May 2026</div>
+                    <h3>Why Numerical Methods Still Matter in the Age of AI</h3>
+                    <p>Exploring how classical numerical schemes complement modern deep learning approaches for solving PDEs, and why the marriage of both is the future.</p>
+                    <div class="tags">
+                        <span class="tag">Numerical Analysis</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">PDEs</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">⚛️</div>
+                <div class="blog-content">
+                    <div class="blog-date">April 2026</div>
+                    <h3>Quantum Computing: A New Frontier for Scientific Computing</h3>
+                    <p>My thoughts on integrating quantum-inspired algorithms into traditional numerical schemes and the potential paradigm shift it could bring.</p>
+                    <div class="tags">
+                        <span class="tag">Quantum Computing</span>
+                        <span class="tag">Scientific Computing</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">📐</div>
+                <div class="blog-content">
+                    <div class="blog-date">March 2026</div>
+                    <h3>Entropy Stability: The Unsung Hero of Robust Solvers</h3>
+                    <p>A deep dive into why entropy-stable schemes are crucial for handling degenerate parabolic equations and ensuring physically meaningful solutions.</p>
+                    <div class="tags">
+                        <span class="tag">Entropy</span>
+                        <span class="tag">Stability</span>
+                        <span class="tag">Hyperbolic PDEs</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🤖</div>
+                <div class="blog-content">
+                    <div class="blog-date">February 2026</div>
+                    <h3>Machine Learning as a Numerical Viscosity Optimizer</h3>
+                    <p>How reinforcement learning can automatically tune numerical viscosity parameters, outperforming hand-crafted approaches in complex flows.</p>
+                    <div class="tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Optimization</span>
+                        <span class="tag">CFD</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🎓</div>
+                <div class="blog-content">
+                    <div class="blog-date">January 2026</div>
+                    <h3>Teaching Mathematics in the Era of Generative AI</h3>
+                    <p>Reflections on how tools like ChatGPT are changing the classroom, and how we can leverage them rather than fear them.</p>
+                    <div class="tags">
+                        <span class="tag">Education</span>
+                        <span class="tag">Generative AI</span>
+                        <span class="tag">Pedagogy</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🔬</div>
+                <div class="blog-content">
+                    <div class="blog-date">December 2025</div>
+                    <h3>From Finite Differences to Neural Operators</h3>
+                    <p>A personal journey tracing the evolution of PDE solvers from classical finite difference methods to cutting-edge neural operator architectures.</p>
+                    <div class="tags">
+                        <span class="tag">Neural Operators</span>
+                        <span class="tag">Fourier Neural Operator</span>
+                        <span class="tag">Deep Learning</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🌊</div>
+                <div class="blog-content">
+                    <div class="blog-date">November 2025</div>
+                    <h3>Shock Capturing: Art, Science, and a Bit of Magic</h3>
+                    <p>The delicate balance between capturing shocks accurately while avoiding oscillations — a problem that has fascinated me for years.</p>
+                    <div class="tags">
+                        <span class="tag">Shock Capturing</span>
+                        <span class="tag">Hyperbolic PDEs</span>
+                        <span class="tag">High-Resolution Schemes</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🔢</div>
+                <div class="blog-content">
+                    <div class="blog-date">October 2025</div>
+                    <h3>The Beauty of Conservation Laws</h3>
+                    <p>Why conservation form matters in numerical schemes, and how violating it can lead to catastrophic results in simulations.</p>
+                    <div class="tags">
+                        <span class="tag">Conservation Laws</span>
+                        <span class="tag">Finite Volume</span>
+                        <span class="tag">Godunov Methods</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img">🧠</div>
+                <div class="blog-content">
+                    <div class="blog-date">September 2025</div>
+                    <h3>Can AI Discover New Numerical Schemes?</h3>
+                    <p>Investigating whether genetic algorithms and neural architecture search can discover novel numerical methods that humans haven't thought of yet.</p>
+                    <div class="tags">
+                        <span class="tag">AI Discovery</span>
+                        <span class="tag">Genetic Algorithms</span>
+                        <span class="tag">NAS</span>
+                    </div>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Prashant Kumar Pandey. Built with passion for mathematics and code.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Hosted on <a href="https://github.com/swap60/Homepage" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    </script>
+
+</body>
+</html>
