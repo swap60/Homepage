@@ -418,20 +418,20 @@
 
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
 
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html">Home</a>
-            <a href="publications.html">Publications</a>
-            <a href="teaching.html">Teaching</a>
-            <a href="codes.html">Codes</a>
-            <a href="blogs.html">Blogs</a>
-            <a href="books.html">Books</a>
-            <a href="projects.html">Projects</a>
-            <a href="achievements.html">Achievements</a>
-            <a href="contact.html">Contact</a>
-            <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
-        </div>
-    </nav>
+    
+   <nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html">Home</a>
+        <a href="data/publications.html">Publications</a>
+        <a href="data/teaching.html">Teaching</a>
+        <a href="data/codes.html">Codes</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="data/books.html">Books</a>
+        <a href="data/projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="data/PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
+    </div>
+</nav>
 
     <section class="hero">
         <h1>Get In Touch</h1>
@@ -449,7 +449,7 @@
                     <div class="contact-detail">
                         <h4>Email</h4>
                         <a href="mailto:prashant.has.pandey@gmail.com">prashant.has.pandey@gmail.com</a>
-                        <p style="margin-top: 2px;"><a href="mailto:swap60@gmail.com">swap60@gmail.com</a></p>
+                        <p style="margin-top: 2px;"><a href="mailto:prashant.has.pandey@gmail.com">prashant.has.pandey@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -468,7 +468,6 @@
                     <div class="contact-icon">📞</div>
                     <div class="contact-detail">
                         <h4>Phone</h4>
-                        <p>+91-XXXXXXXXXX (Office)<br>
                         +91-9677169181 (Mobile)</p>
                     </div>
                 </div>
@@ -545,19 +544,24 @@
             </div>
         </div>
 
-        <div class="map-section">
-            <h3>📍 Find Me Here</h3>
-            <div class="map-placeholder">
-                <div class="pin">📍</div>
-                <p>Amity University, Ranchi</p>
-                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Jharkhand, India</p>
-            </div>
-            <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
-                💡 <strong>Tip:</strong> Replace this with an embedded Google Map iframe for a real interactive map.
-            </p>
-        </div>
+       <div class="map-section">
+    <h3>📍 Find Me Here</h3>
 
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps?q=Amity+University+Ranchi&output=embed"
+            width="100%" 
+            height="300" 
+            style="border:0; border-radius:10px;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
     </div>
+
+    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+        📍 Amity University, Ranchi, Jharkhand, India
+    </p>
+</div>
 
     <footer class="footer">
         <p>© 2026 Prashant Kumar Pandey. Built with passion for mathematics and code.</p>
