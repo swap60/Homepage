@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /data/
+
+Sitemap: https://swap60.github.io/Homepage/sitemap.xml
