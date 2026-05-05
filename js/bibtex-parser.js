@@ -26,9 +26,9 @@ function parseBibtex(bibtexText) {
             number: '',
             pages: '',
             publisher: '',
-            doi: '',
-            citations: '0',
-            abstract: ''
+            doi:'',
+            citations:'0',
+            abstract:''
         };
         
         let fieldMatch;
@@ -106,8 +106,7 @@ function renderPublication(entry) {
             <div class="pub-actions">
                
                 ${entry.doi ? `<a href="https://doi.org/${entry.doi}" class="pub-btn" target="_blank">🔗 DOI</a>` : ''}
-                ${hasCode ? `<a href="${entry.code}" class="pub-btn" target="_blank">💻 Code</a>` : ''}
-                <button class="pub-btn" onclick="showBibtex('${entry.key}')">📋 BibTeX</button>
+                 <button class="pub-btn" onclick="showBibtex('${entry.key}')">📋 BibTeX</button>
             </div>
             <div class="pub-metrics">
                 <span>📈 ${citations} citation${citations !== 1 ? 's' : ''}</span>
