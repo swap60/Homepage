@@ -104,7 +104,7 @@ function renderPublication(entry) {
             <p class="pub-venue">${venue}</p>
             ${entry.abstract ? `<p class="pub-abstract">${entry.abstract}</p>` : ''}
             <div class="pub-actions">
-                ${hasPdf ? `<a href="${entry.pdf}" class="pub-btn primary" target="_blank">📄 PDF</a>` : `<span class="pub-btn primary" style="opacity:0.5;cursor:default">📄 PDF</span>`}
+               
                 ${entry.doi ? `<a href="https://doi.org/${entry.doi}" class="pub-btn" target="_blank">🔗 DOI</a>` : ''}
                 ${hasCode ? `<a href="${entry.code}" class="pub-btn" target="_blank">💻 Code</a>` : ''}
                 <button class="pub-btn" onclick="showBibtex('${entry.key}')">📋 BibTeX</button>
