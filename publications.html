@@ -418,6 +418,18 @@
             background: var(--primary-dark);
         }
 
+        .pub-btn.disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .pub-btn.disabled:hover {
+            background: var(--bg);
+            color: var(--text-light);
+            border-color: var(--border);
+            transform: none;
+        }
+
         .pub-metrics {
             display: flex;
             gap: 20px;
@@ -432,6 +444,22 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #dc2626;
+            background: #fef2f2;
+            border-radius: var(--radius);
+            margin: 20px 0;
         }
 
         .bibtex-modal {
@@ -611,133 +639,9 @@
             </div>
         </div>
 
-        <div class="publications-list" id="publications-list">
+        <div id="loading-msg" class="loading">📚 Loading publications...</div>
+        <div class="publications-list" id="publications-list"></div>
 
-            <!-- Publication 1: Journal -->
-            <article class="publication" data-category="journal" data-title="High-resolution WENO schemes using local variation-based smoothness indicator">
-                <div class="pub-header">
-                    <div class="pub-badges">
-                        <span class="pub-badge journal">Journal</span>
-                    </div>
-                    <span class="pub-year">2022</span>
-                </div>
-                <h3 class="pub-title">High-resolution WENO schemes using local variation-based smoothness indicator</h3>
-                <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Farzad Ismail, Ritesh Kumar Dubey</p>
-                <p class="pub-venue">Computational and Applied Mathematics, Vol. 41, 208</p>
-                <p class="pub-abstract">
-                    A novel smoothness indicator is proposed herein for WENO schemes based on the point-wise local variation in the candidate stencils. The proposed indicator is further used to define non-linear weights for a WENO scheme.
-                </p>
-                <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1007/s40314-022-01916-0" class="pub-btn">🔗 DOI</a>
-                    <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('pandey2022high')">📋 BibTeX</button>
-                </div>
-                <div class="pub-metrics">
-                    <span>📈 3 citations</span>
-                </div>
-            </article>
-
-            <!-- Publication 2: Journal -->
-            <article class="publication" data-category="journal" data-title="Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes">
-                <div class="pub-header">
-                    <div class="pub-badges">
-                        <span class="pub-badge journal">Journal</span>
-                    </div>
-                    <span class="pub-year">2023</span>
-                </div>
-                <h3 class="pub-title">Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes</h3>
-                <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Ritesh Kumar Dubey</p>
-                <p class="pub-venue">Applied Mathematics and Computation, Vol. 454, 128099</p>
-                <p class="pub-abstract">
-                    High order sign stable reconstructions are much sought after to develop high order non-oscillatory entropy stable schemes. This work presents a very simple but generic approach to construct arbitrary high order sign stable reconstructions. Further, by utilizing such obtained sign stable reconstructions entropy stable schemes are constructed using well known arbitrary high-order entropy conservative fluxes. Several numerical results for 1D and 2D benchmark test problems are given to demonstrate the accuracy and non-oscillatory property of representative entropy stable schemes which are designed using of proposed approach.
-                </p>
-                <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1016/j.amc.2023.1280" class="pub-btn">🔗 DOI</a>
-                    <button class="pub-btn" onclick="showBibtex('pandey2023sign')">📋 BibTeX</button>
-                </div>
-                <div class="pub-metrics">
-                    <span>📈 4 citations</span>
-                </div>
-            </article>
-
-            <!-- Publication 3: Journal -->
-            <article class="publication" data-category="journal" data-title="An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes">
-                <div class="pub-header">
-                    <div class="pub-badges">
-                        <span class="pub-badge journal">Journal</span>
-                    </div>
-                    <span class="pub-year">2023</span>
-                </div>
-                <h3 class="pub-title">An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes</h3>
-                <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Ritesh Kumar Dubey</p>
-                <p class="pub-venue">Physica Scripta, Vol. 98, 8</p>
-                <p class="pub-abstract">
-                    In this short paper, we present efficient scaling of WENO-JS weights which results in robust and formal accuracy-preserving high-resolution WENO-JS schemes. The proposed scaling makes the WENO-JS schemes robust in the sense that schemes works well irrespective of the choice for the parameter epsilon used in classical WENO-JS weights to prevent division by zero. In smooth solution region the proposed scaling keeps the scaled WENO weights in the vicinity of critical weights thus resulting scheme retains formal accuracy. Numerical experiments show that the WENO schemes with scaled weights provide higher resolution for discontinuities as well for smooth solution with high gradients.
-                </p>
-                <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1088/1402-4896/ace85f" class="pub-btn">🔗 DOI</a>
-                    <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('kumar2023efficient')">📋 BibTeX</button>
-                </div>
-                <div class="pub-metrics">
-                    <span>📈 0 citations</span>
-                </div>
-            </article>
-
-            <!-- Publication 4: Journal -->
-            <article class="publication" data-category="journal" data-title="Eno classification and regression neural networks for numerical approximation of discontinuous flow problems">
-                <div class="pub-header">
-                    <div class="pub-badges">
-                        <span class="pub-badge journal">Journal</span>
-                    </div>
-                    <span class="pub-year">2024</span>
-                </div>
-                <h3 class="pub-title">Eno classification and regression neural networks for numerical approximation of discontinuous flow problems</h3>
-                <p class="pub-authors">Ritesh Kumar Dubey, Vikas Kumar Jayswal, <span class="highlight">P. K. Pandey</span></p>
-                <p class="pub-venue">Soft Computing, Vol. 28, 11787–11798</p>
-                <p class="pub-abstract">
-                    Learning high order non-oscillatory polynomial approximation procedures which form the backbone of high order numerical solution of partial differential equations is challenging. The major issue is to pose these procedures as a learning problem and generate suitable synthetic data set which suffice learning it with small neural networks. In this work, we pose an arc-length based essentially non-oscillatory (ENOL) reconstruction algorithm as machine learning problem. A novel way to construct the synthetic data using ENOL algorithm along with basic smooth and piece-wise continuous functions is given. Small vanilla regression and classification neural networks are trained to learn third order (ENOL) polynomial approximation procedure.
-                </p>
-                <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1007/s00500-024-09944-0" class="pub-btn">🔗 DOI</a>
-                    <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('jayswal2024eno')">📋 BibTeX</button>
-                </div>
-                <div class="pub-metrics">
-                    <span>📈 0 citations</span>
-                </div>
-            </article>
-
-            <!-- Publication 5: Book Chapter -->
-            <article class="publication" data-category="book" data-title="Learning numerical viscosity using artificial neural regression network">
-                <div class="pub-header">
-                    <div class="pub-badges">
-                        <span class="pub-badge book">Book Chapter</span>
-                    </div>
-                    <span class="pub-year">2021</span>
-                </div>
-                <h3 class="pub-title">Learning numerical viscosity using artificial neural regression network</h3>
-                <p class="pub-authors">R. K. Dubey, A. Gupta, V. K. Jayswal, <span class="highlight">P. K. Pandey</span></p>
-                <p class="pub-venue">International Conference on Computational Sciences-Modelling, Computing and Soft Computing (Springer), pp. 42–55</p>
-                <p class="pub-abstract">
-                    This chapter explores the use of artificial neural regression networks to learn numerical viscosity parameters, bridging classical numerical analysis with modern machine learning techniques for improved computational fluid dynamics simulations.
-                </p>
-                <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1007/978-981-16-4772-7_3" class="pub-btn">🔗 DOI</a>
-                    <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('dubey2020learning')">📋 BibTeX</button>
-                </div>
-                <div class="pub-metrics">
-                    <span>📈 3 citations</span>
-                </div>
-            </article>
-
-        </div>
     </div>
 
     <div class="bibtex-modal" id="bibtex-modal">
@@ -756,7 +660,14 @@
         <p style="margin-top: 8px; font-size: 0.8rem;">Hosted on <a href="https://github.com/swap60/Homepage" target="_blank">GitHub Pages</a></p>
     </footer>
 
+    <!-- BibTeX Parser -->
+    <script src="js/bibtex-parser.js"></script>
+
     <script>
+        // Global storage
+        let allEntries = [];
+        let bibtexDB = {};
+
         function toggleTheme() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
@@ -770,92 +681,49 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
-        const bibtexDB = {
-            'pandey2022high': `@article{pandey2022high,
-  title={High-resolution WENO schemes using local variation-based smoothness indicator},
-  author={Pandey, Prashant Kumar and Ismail, Farzad and Dubey, Ritesh Kumar},
-  journal={Computational and Applied Mathematics},
-  volume={41},
-  number={5},
-  pages={208},
-  year={2022},
-  publisher={Springer}
-}`,
-            'pandey2023sign': `@article{pandey2023sign,
-  title={Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes},
-  author={Pandey, Prashant Kumar and Dubey, Ritesh Kumar},
-  journal={Applied Mathematics and Computation},
-  volume={454},
-  pages={128099},
-  year={2023},
-  publisher={Elsevier}
-}`,
-            'kumar2023efficient': `@article{kumar2023efficient,
-  title={An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes},
-  author={Kumar Pandey, Prashant and Kumar Dubey, Ritesh},
-  journal={Physica Scripta},
-  volume={98},
-  number={8},
-  pages={085247},
-  year={2023},
-  publisher={IOP Publishing}
-}`,
-            'jayswal2024eno': `@article{jayswal2024eno,
-  title={Eno classification and regression neural networks for numerical approximation of discontinuous flow problems},
-  author={Jayswal, Vikas Kumar and Pandey, Prashant Kumar and Dubey, Ritesh Kumar},
-  journal={Soft Computing},
-  volume={28},
-  number={20},
-  pages={11787--11798},
-  year={2024},
-  publisher={Springer}
-}`,
-            'dubey2020learning': `@inproceedings{dubey2020learning,
-  title={Learning numerical viscosity using artificial neural regression network},
-  author={Dubey, Ritesh Kumar and Gupta, Anupam and Jayswal, Vikas Kumar and Pandey, Prashant Kumar},
-  booktitle={International Conference on Computational Sciences-Modelling, Computing and Soft Computing},
-  pages={42--55},
-  year={2020},
-  publisher={Springer}
-}`
-        };
-
-        let currentBibtex = '';
-
-        function showBibtex(key) {
-            currentBibtex = bibtexDB[key] || '@article{unknown,\\n  title={Citation not found}\\n}';
-            document.getElementById('bibtex-code').textContent = currentBibtex;
-            document.getElementById('bibtex-modal').classList.add('active');
-            document.getElementById('bibtex-copy').textContent = '📋 Copy to Clipboard';
-            document.getElementById('bibtex-copy').classList.remove('copied');
-        }
-
-        function closeBibtex() {
-            document.getElementById('bibtex-modal').classList.remove('active');
-        }
-
-        function copyBibtex() {
-            navigator.clipboard.writeText(currentBibtex).then(() => {
-                const btn = document.getElementById('bibtex-copy');
-                btn.textContent = '✅ Copied!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = '📋 Copy to Clipboard';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
-
-        document.getElementById('bibtex-modal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('bibtex-modal')) {
-                closeBibtex();
+        // Fetch and parse papers.bib
+        async function loadPublications() {
+            try {
+                const response = await fetch('papers.bib');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const bibtexText = await response.text();
+                
+                allEntries = parseBibtex(bibtexText);
+                
+                // Build BibTeX database for copy functionality
+                allEntries.forEach(entry => {
+                    bibtexDB[entry.key] = reconstructBibtex(entry);
+                });
+                
+                renderAll();
+                document.getElementById('loading-msg').style.display = 'none';
+            } catch (err) {
+                document.getElementById('loading-msg').innerHTML = 
+                    `<div class="error">⚠️ Failed to load publications: ${err.message}<br>Make sure <code>papers.bib</code> exists in your repo root.</div>`;
+                console.error(err);
             }
-        });
+        }
+
+        function reconstructBibtex(entry) {
+            let bib = `@${entry.type}{${entry.key},\n`;
+            const fields = ['title', 'author', 'journal', 'booktitle', 'year', 'volume', 'number', 'pages', 'publisher', 'doi'];
+            fields.forEach(field => {
+                if (entry[field]) bib += `  ${field}={${entry[field]}},\n`;
+            });
+            bib += `}`;
+            return bib;
+        }
+
+        function renderAll() {
+            const container = document.getElementById('publications-list');
+            container.innerHTML = allEntries.map(renderPublication).join('');
+            updateStats();
+        }
 
         function getVisiblePubs() {
-            return [...document.querySelectorAll('.publication')].filter(pub => {
-                return pub.style.display !== 'none';
-            });
+            return [...document.querySelectorAll('.publication')].filter(pub => 
+                pub.style.display !== 'none'
+            );
         }
 
         function extractCitations(pub) {
@@ -899,7 +767,7 @@
                 if (category === 'all' || pubCat === category) {
                     pub.style.display = 'block';
                     pub.style.animation = 'none';
-                    pub.offsetHeight; // trigger reflow
+                    pub.offsetHeight;
                     pub.style.animation = 'fadeInUp 0.5s ease';
                 } else {
                     pub.style.display = 'none';
@@ -946,8 +814,41 @@
             }, 30);
         }
 
-        // Initialize stats on page load
-        document.addEventListener('DOMContentLoaded', updateStats);
+        // BibTeX Modal Functions
+        let currentBibtex = '';
+
+        function showBibtex(key) {
+            currentBibtex = bibtexDB[key] || '@article{unknown,\\n  title={Citation not found}\\n}';
+            document.getElementById('bibtex-code').textContent = currentBibtex;
+            document.getElementById('bibtex-modal').classList.add('active');
+            document.getElementById('bibtex-copy').textContent = '📋 Copy to Clipboard';
+            document.getElementById('bibtex-copy').classList.remove('copied');
+        }
+
+        function closeBibtex() {
+            document.getElementById('bibtex-modal').classList.remove('active');
+        }
+
+        function copyBibtex() {
+            navigator.clipboard.writeText(currentBibtex).then(() => {
+                const btn = document.getElementById('bibtex-copy');
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy to Clipboard';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        document.getElementById('bibtex-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('bibtex-modal')) {
+                closeBibtex();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadPublications);
     </script>
 
 </body>
