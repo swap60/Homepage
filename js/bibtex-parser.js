@@ -28,8 +28,6 @@ function parseBibtex(bibtexText) {
             publisher: '',
             doi: '',
             citations: '0',
-            pdf: '',
-            code: '',
             abstract: ''
         };
         
