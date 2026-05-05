@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications | Prashant Kumar Pandey</title>
-    <meta name="description" content=" Selected Publications by Prashant Kumar Pandey - Research papers on numerical methods for hyperbolic PDEs, entropy-stable schemes, and AI integration in scientific computing.">
+    <meta name="description" content="Selected Publications by Prashant Kumar Pandey - Research papers on numerical methods for hyperbolic PDEs, entropy-stable schemes, and AI integration in scientific computing.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -613,6 +613,7 @@
 
         <div class="publications-list" id="publications-list">
 
+            <!-- Publication 1: Journal -->
             <article class="publication" data-category="journal" data-title="High-resolution WENO schemes using local variation-based smoothness indicator">
                 <div class="pub-header">
                     <div class="pub-badges">
@@ -624,25 +625,24 @@
                 <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Farzad Ismail, Ritesh Kumar Dubey</p>
                 <p class="pub-venue">Computational and Applied Mathematics, Vol. 41, 208</p>
                 <p class="pub-abstract">
-                A novel smoothness indicator is proposed herein for WENO schemes based on the point-wise local variation in the candidate stencils. The proposed indicator is further used to define non-linear weights for a WENO scheme. 
+                    A novel smoothness indicator is proposed herein for WENO schemes based on the point-wise local variation in the candidate stencils. The proposed indicator is further used to define non-linear weights for a WENO scheme.
                 </p>
                 <div class="pub-actions">
                     <a href="#" class="pub-btn primary">📄 PDF</a>
-                    <a href="https://doi.org/10.1007/s40314-022-01916-0" class="pub-btn">🔗DOI</a>
+                    <a href="https://doi.org/10.1007/s40314-022-01916-0" class="pub-btn">🔗 DOI</a>
                     <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('pandey2022high')">📋BibTeX</button>
+                    <button class="pub-btn" onclick="showBibtex('pandey2022high')">📋 BibTeX</button>
                 </div>
                 <div class="pub-metrics">
                     <span>📈 3 citations</span>
-                    <span>🔥 </span>
-                    <span>👁️ </span>
                 </div>
             </article>
 
-            <article class="publication" data-category="Journal" data-title="Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes">
+            <!-- Publication 2: Journal -->
+            <article class="publication" data-category="journal" data-title="Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes">
                 <div class="pub-header">
                     <div class="pub-badges">
-                        <span class="pub-badge Journal">Journal</span>
+                        <span class="pub-badge journal">Journal</span>
                     </div>
                     <span class="pub-year">2023</span>
                 </div>
@@ -650,22 +650,23 @@
                 <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Ritesh Kumar Dubey</p>
                 <p class="pub-venue">Applied Mathematics and Computation, Vol. 454, 128099</p>
                 <p class="pub-abstract">
-                   High order sign stable reconstructions are much sought after to develop high order non-oscillatory entropy stable schemes. This work presents a very simple but generic approach to construct arbitrary high order sign stable reconstructions. Further, by utilizing such obtained sign stable reconstructions entropy stable schemes are constructed using well known arbitrary high-order entropy conservative fluxes. Several numerical results for 1D and 2D benchmark test problems are given to demonstrate the accuracy and non-oscillatory property of representative entropy stable schemes which are designed using of proposed approach.
+                    High order sign stable reconstructions are much sought after to develop high order non-oscillatory entropy stable schemes. This work presents a very simple but generic approach to construct arbitrary high order sign stable reconstructions. Further, by utilizing such obtained sign stable reconstructions entropy stable schemes are constructed using well known arbitrary high-order entropy conservative fluxes. Several numerical results for 1D and 2D benchmark test problems are given to demonstrate the accuracy and non-oscillatory property of representative entropy stable schemes which are designed using of proposed approach.
+                </p>
                 <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄PDF</a>
-                    <a href="https://doi.org/10.1016/j.amc.2023.1280" class="pub-btn">🔗DOI</a>
-                    <button class="pub-btn" onclick="showBibtex('pandey2023sign')">📋BibTeX</button>
+                    <a href="#" class="pub-btn primary">📄 PDF</a>
+                    <a href="https://doi.org/10.1016/j.amc.2023.1280" class="pub-btn">🔗 DOI</a>
+                    <button class="pub-btn" onclick="showBibtex('pandey2023sign')">📋 BibTeX</button>
                 </div>
                 <div class="pub-metrics">
                     <span>📈 4 citations</span>
-                    <span>👁️  views</span>
                 </div>
             </article>
 
-            <article class="publication" data-category="Journal" data-title="An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes">
+            <!-- Publication 3: Journal -->
+            <article class="publication" data-category="journal" data-title="An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes">
                 <div class="pub-header">
                     <div class="pub-badges">
-                        <span class="pub-badge article">Article</span>
+                        <span class="pub-badge journal">Journal</span>
                     </div>
                     <span class="pub-year">2023</span>
                 </div>
@@ -673,78 +674,72 @@
                 <p class="pub-authors"><span class="highlight">P. K. Pandey</span>, Ritesh Kumar Dubey</p>
                 <p class="pub-venue">Physica Scripta, Vol. 98, 8</p>
                 <p class="pub-abstract">
-            In this short paper, we present efficient scaling of WENO-JS weights which results in robust and formal accuracy-preserving high-resolution WENO-JS schemes. The proposed scaling makes the WENO-JS schemes robust in the sense that schemes works well irrespective of the choice for the parameter epsilon used in classical WENO-JS weights to prevent division by zero. In smooth solution region the proposed scaling keeps the scaled WENO weights in the vicinity of critical weights thus resulting scheme retains formal accuracy.
-                    Numerical experiments show that the WENO schemes with scaled weights provide higher resolution for discontinuities as well for smooth solution with high gradients.
+                    In this short paper, we present efficient scaling of WENO-JS weights which results in robust and formal accuracy-preserving high-resolution WENO-JS schemes. The proposed scaling makes the WENO-JS schemes robust in the sense that schemes works well irrespective of the choice for the parameter epsilon used in classical WENO-JS weights to prevent division by zero. In smooth solution region the proposed scaling keeps the scaled WENO weights in the vicinity of critical weights thus resulting scheme retains formal accuracy. Numerical experiments show that the WENO schemes with scaled weights provide higher resolution for discontinuities as well for smooth solution with high gradients.
                 </p>
                 <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄PDF</a>
-                    <a href="10.1088/1402-4896/ace85f" class="pub-btn">🔗DOI</a>
+                    <a href="#" class="pub-btn primary">📄 PDF</a>
+                    <a href="https://doi.org/10.1088/1402-4896/ace85f" class="pub-btn">🔗 DOI</a>
                     <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('kumar2023efficient')">📋BibTeX</button>
+                    <button class="pub-btn" onclick="showBibtex('kumar2023efficient')">📋 BibTeX</button>
                 </div>
                 <div class="pub-metrics">
-                    <span>📈0 citations </span>
-                    <span>👁️ views </span>
+                    <span>📈 0 citations</span>
                 </div>
             </article>
 
- <article class="publication" data-category="Journal" data-title="Eno classification and regression neural networks for numerical approximation of discontinuous flow problems">
+            <!-- Publication 4: Journal -->
+            <article class="publication" data-category="journal" data-title="Eno classification and regression neural networks for numerical approximation of discontinuous flow problems">
                 <div class="pub-header">
                     <div class="pub-badges">
-                        <span class="pub-badge article">Article</span>
+                        <span class="pub-badge journal">Journal</span>
                     </div>
                     <span class="pub-year">2024</span>
                 </div>
                 <h3 class="pub-title">Eno classification and regression neural networks for numerical approximation of discontinuous flow problems</h3>
-                <p class="pub-authors"></span>, Ritesh Kumar Dubey,Vikas Kumar Jayswal,<span class="highlight">P. K. Pandey</p>
-                <p class="pub-venue"></p>
-                <p class="pub-abstract"> Learning high order non-oscillatory polynomial approximation procedures which form the backbone of high order numerical solution of partial differential equations is challenging.
-                    The major issue is to pose these procedures as a learning problem and generate suitable synthetic data set which suffice learning it with small neural networks. In this work, we pose an arc-length based essentially non-oscillatory (ENOL) reconstruction algorithm as machine learning problem. A novel way to construct the synthetic data using ENOL algorithm along with basic smooth and piece-wise continuous functions is given. 
-                    Small vanilla regression and classification neural networks are trained to learn third order (ENOL) polynomial approximation procedure.......  </p>
+                <p class="pub-authors">Ritesh Kumar Dubey, Vikas Kumar Jayswal, <span class="highlight">P. K. Pandey</span></p>
+                <p class="pub-venue">Soft Computing, Vol. 28, 11787–11798</p>
+                <p class="pub-abstract">
+                    Learning high order non-oscillatory polynomial approximation procedures which form the backbone of high order numerical solution of partial differential equations is challenging. The major issue is to pose these procedures as a learning problem and generate suitable synthetic data set which suffice learning it with small neural networks. In this work, we pose an arc-length based essentially non-oscillatory (ENOL) reconstruction algorithm as machine learning problem. A novel way to construct the synthetic data using ENOL algorithm along with basic smooth and piece-wise continuous functions is given. Small vanilla regression and classification neural networks are trained to learn third order (ENOL) polynomial approximation procedure.
+                </p>
                 <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄PDF</a>
-                    <a href="https://doi.org/10.1007/s00500-024-09944-0" class="pub-btn">🔗DOI</a>
+                    <a href="#" class="pub-btn primary">📄 PDF</a>
+                    <a href="https://doi.org/10.1007/s00500-024-09944-0" class="pub-btn">🔗 DOI</a>
                     <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('jayswal2024eno')">📋BibTeX</button>
+                    <button class="pub-btn" onclick="showBibtex('jayswal2024eno')">📋 BibTeX</button>
                 </div>
                 <div class="pub-metrics">
-                    <span>📈0 citations </span>
-                    <span>👁️ views </span>
+                    <span>📈 0 citations</span>
                 </div>
             </article>
 
- <article class="publication" data-category=" Book Chapter" data-title="Learning numerical viscosity using artificial neural regression network">
+            <!-- Publication 5: Book Chapter -->
+            <article class="publication" data-category="book" data-title="Learning numerical viscosity using artificial neural regression network">
                 <div class="pub-header">
                     <div class="pub-badges">
-                        <span class="pub-badge article">Book Chapter</span>
+                        <span class="pub-badge book">Book Chapter</span>
                     </div>
                     <span class="pub-year">2021</span>
                 </div>
                 <h3 class="pub-title">Learning numerical viscosity using artificial neural regression network</h3>
-                <p class="pub-authors"></span>Dubey, R. K., Gupta, A., Jayswal, V. K.,<span class="highlight">P. K. Pandey</p>
-                <p class="pub-venue"></p>
-                <p class="pub-abstract"></p>
+                <p class="pub-authors">R. K. Dubey, A. Gupta, V. K. Jayswal, <span class="highlight">P. K. Pandey</span></p>
+                <p class="pub-venue">International Conference on Computational Sciences-Modelling, Computing and Soft Computing (Springer), pp. 42–55</p>
+                <p class="pub-abstract">
+                    This chapter explores the use of artificial neural regression networks to learn numerical viscosity parameters, bridging classical numerical analysis with modern machine learning techniques for improved computational fluid dynamics simulations.
+                </p>
                 <div class="pub-actions">
-                    <a href="#" class="pub-btn primary">📄PDF</a>
-                    <a href="https://doi.org/10.1007/978-981-16-4772-7_3" class="pub-btn">🔗DOI</a>
+                    <a href="#" class="pub-btn primary">📄 PDF</a>
+                    <a href="https://doi.org/10.1007/978-981-16-4772-7_3" class="pub-btn">🔗 DOI</a>
                     <a href="#" class="pub-btn">💻 Code</a>
-                    <button class="pub-btn" onclick="showBibtex('dubey2020learning')">📋BibTeX</button>
+                    <button class="pub-btn" onclick="showBibtex('dubey2020learning')">📋 BibTeX</button>
                 </div>
                 <div class="pub-metrics">
-                    <span>📈3 citations </span>
-                    <span>👁️ views </span>
+                    <span>📈 3 citations</span>
                 </div>
             </article>
 
+        </div>
+    </div>
 
-
-
-
-
-
-
-
-            
     <div class="bibtex-modal" id="bibtex-modal">
         <div class="bibtex-content">
             <div class="bibtex-header">
@@ -786,7 +781,7 @@
   year={2022},
   publisher={Springer}
 }`,
-    'pandey2023sign': `@article{pandey2023sign,
+            'pandey2023sign': `@article{pandey2023sign,
   title={Sign stable arbitrary high order reconstructions for constructing non-oscillatory entropy stable schemes},
   author={Pandey, Prashant Kumar and Dubey, Ritesh Kumar},
   journal={Applied Mathematics and Computation},
@@ -795,7 +790,7 @@
   year={2023},
   publisher={Elsevier}
 }`,
-'kumar2023efficient': `@article{kumar2023efficient,
+            'kumar2023efficient': `@article{kumar2023efficient,
   title={An efficient scaling of WENO-JS weights for accuracy preserving and higher resolution schemes},
   author={Kumar Pandey, Prashant and Kumar Dubey, Ritesh},
   journal={Physica Scripta},
@@ -815,20 +810,20 @@
   year={2024},
   publisher={Springer}
 }`,
- 'dubey2020learning':@inproceedings{dubey2020learning,
+            'dubey2020learning': `@inproceedings{dubey2020learning,
   title={Learning numerical viscosity using artificial neural regression network},
   author={Dubey, Ritesh Kumar and Gupta, Anupam and Jayswal, Vikas Kumar and Pandey, Prashant Kumar},
-  booktitle={International Conference on Computational Sciences-Modelling, Computing and Soft},
+  booktitle={International Conference on Computational Sciences-Modelling, Computing and Soft Computing},
   pages={42--55},
   year={2020},
-  organization={Springer}
-}
+  publisher={Springer}
+}`
         };
 
         let currentBibtex = '';
 
         function showBibtex(key) {
-            currentBibtex = bibtexDB[key] || '@article{unknown,\n  title={Citation not found}\n}';
+            currentBibtex = bibtexDB[key] || '@article{unknown,\\n  title={Citation not found}\\n}';
             document.getElementById('bibtex-code').textContent = currentBibtex;
             document.getElementById('bibtex-modal').classList.add('active');
             document.getElementById('bibtex-copy').textContent = '📋 Copy to Clipboard';
@@ -857,17 +852,54 @@
             }
         });
 
+        function getVisiblePubs() {
+            return [...document.querySelectorAll('.publication')].filter(pub => {
+                return pub.style.display !== 'none';
+            });
+        }
+
+        function extractCitations(pub) {
+            const metrics = pub.querySelector('.pub-metrics');
+            if (!metrics) return 0;
+            const match = metrics.textContent.match(/📈\s*(\d+)\s*citations?/i);
+            return match ? parseInt(match[1]) : 0;
+        }
+
+        function updateStats() {
+            const visible = getVisiblePubs();
+            let totalCitations = 0;
+            let journals = 0;
+            let conferences = 0;
+            let preprints = 0;
+            let books = 0;
+
+            visible.forEach(pub => {
+                const cat = pub.getAttribute('data-category');
+                totalCitations += extractCitations(pub);
+                
+                if (cat === 'journal') journals++;
+                else if (cat === 'conference') conferences++;
+                else if (cat === 'preprint') preprints++;
+                else if (cat === 'book') books++;
+            });
+
+            animateNumber('stat-total', visible.length);
+            animateNumber('stat-journal', journals);
+            animateNumber('stat-conference', conferences);
+            animateNumber('stat-citations', totalCitations);
+        }
+
         function filterPubs(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-filter') === category) {
-                    btn.classList.add('active');
-                }
+                btn.classList.toggle('active', btn.getAttribute('data-filter') === category);
             });
 
             document.querySelectorAll('.publication').forEach(pub => {
-                if (category === 'all' || pub.getAttribute('data-category') === category) {
+                const pubCat = pub.getAttribute('data-category');
+                if (category === 'all' || pubCat === category) {
                     pub.style.display = 'block';
+                    pub.style.animation = 'none';
+                    pub.offsetHeight; // trigger reflow
                     pub.style.animation = 'fadeInUp 0.5s ease';
                 } else {
                     pub.style.display = 'none';
@@ -878,36 +910,28 @@
         }
 
         function searchPubs() {
-            const query = document.getElementById('pub-search').value.toLowerCase();
+            const query = document.getElementById('pub-search').value.toLowerCase().trim();
+            
             document.querySelectorAll('.publication').forEach(pub => {
-                const title = pub.getAttribute('data-title').toLowerCase();
+                const title = (pub.getAttribute('data-title') || '').toLowerCase();
                 const text = pub.textContent.toLowerCase();
-                if (title.includes(query) || text.includes(query)) {
+                
+                if (!query || title.includes(query) || text.includes(query)) {
                     pub.style.display = 'block';
                 } else {
                     pub.style.display = 'none';
                 }
             });
+            
             updateStats();
-        }
-
-        function updateStats() {
-            const visible = document.querySelectorAll('.publication[style*="display: block"], .publication:not([style*="display: none"])');
-            const journals = [...visible].filter(p => p.getAttribute('data-category') === 'journal').length;
-            const conferences = [...visible].filter(p => p.getAttribute('data-category') === 'conference').length;
-
-            animateNumber('stat-total', visible.length);
-            animateNumber('stat-journal', journals);
-            animateNumber('stat-conference', conferences);
-            animateNumber('stat-citations', 10);
         }
 
         function animateNumber(id, target) {
             const el = document.getElementById(id);
             const current = parseInt(el.textContent) || 0;
+            if (current === target) return;
+            
             const diff = target - current;
-            if (diff === 0) return;
-
             const steps = 20;
             const step = diff / steps;
             let i = 0;
@@ -922,7 +946,8 @@
             }, 30);
         }
 
-        updateStats();
+        // Initialize stats on page load
+        document.addEventListener('DOMContentLoaded', updateStats);
     </script>
 
 </body>
