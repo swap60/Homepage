@@ -1,1 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Collaboration | Prashant Kumar Pandey</title>
+    <meta name="description" content="Research project board for collaborators, junior researchers, and students interested in numerical PDEs, entropy-stable schemes, AI for scientific computing, and quantum-inspired algorithms.">
+    <link rel="canonical" href="https://swap60.github.io/Homepage/projects.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f2a;
+            --primary-light: #2d8a42;
+            --primary-dark: #0d3d1a;
+            --accent: #c9a227;
+            --accent-soft: #f3e9c2;
+            --bg: #f7f9fb;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a5a;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 8px 28px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 16px;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+            padding: 15px 18px;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+
+        .nav a:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .hero {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(201,162,39,0.25), transparent 28%),
+                linear-gradient(135deg, #10451e 0%, #092c13 100%);
+            color: white;
+            padding: 68px 20px 52px;
+        }
+
+        .hero-inner,
+        .page-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            border: 1px solid rgba(232,212,139,0.5);
+            color: #f3e9c2;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-weight: 800;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1.08;
+            max-width: 860px;
+            margin-bottom: 18px;
+            overflow-wrap: break-word;
+        }
+
+        .hero p {
+            max-width: 760px;
+            color: rgba(255,255,255,0.82);
+            font-size: 1.06rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid var(--primary);
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button.gold {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #182010;
+        }
+
+        .button.light {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.28);
+            color: white;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .page-wrap {
+            padding: 36px 20px 64px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 32px 0 18px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 14px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 22px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-light);
+            border-radius: 999px;
+            padding: 9px 14px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201,162,39,0.8);
+        }
+
+        .project-card.hidden { display: none; }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 14px;
+        }
+
+        .tag {
+            background: rgba(26,95,42,0.08);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 4px 9px;
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .tag.gold {
+            background: var(--accent-soft);
+            color: #7a5a00;
+        }
+
+        .project-card h3 {
+            font-size: 1.14rem;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            font-size: 0.93rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card ul {
+            color: var(--text-light);
+            padding-left: 18px;
+            margin: 8px 0 18px;
+            font-size: 0.9rem;
+        }
+
+        .project-card .button {
+            margin-top: auto;
+            align-self: flex-start;
+            font-size: 0.88rem;
+        }
+
+        .info-band {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .info-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 24px;
+        }
+
+        .info-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .info-panel p,
+        .info-panel li {
+            color: var(--text-light);
+            font-size: 0.94rem;
+        }
+
+        .info-panel ol,
+        .info-panel ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .youtube-box {
+            background: linear-gradient(135deg, rgba(26,95,42,0.08), rgba(201,162,39,0.16));
+            border: 1px solid rgba(201,162,39,0.45);
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .youtube-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+
+        .youtube-box p {
+            color: var(--text-light);
+        }
+
+        .lecture-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .lecture-list span {
+            display: block;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 12px;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .status-line {
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), #08280f);
+            color: rgba(255,255,255,0.72);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #f3e9c2;
+            text-decoration: none;
+        }
+
+        @media (max-width: 920px) {
+            .project-grid,
+            .info-band,
+            .youtube-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-inner {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 0 8px;
+                max-width: 390px;
+                margin: 0;
+            }
+
+            .nav a {
+                text-align: center;
+                padding: 10px 6px;
+                font-size: 0.78rem;
+                white-space: normal;
+            }
+
+            .hero { padding: 46px 20px; }
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.18;
+                max-width: 330px;
+            }
+            .hero p {
+                max-width: 330px;
+            }
+            .hero-actions .button {
+                width: 100%;
+                max-width: 280px;
+            }
+            .filter-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .filter-btn {
+                white-space: normal;
+            }
+            .section-title { align-items: flex-start; flex-direction: column; }
+            .project-card { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="codes.html">Codes</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="books.html">Books</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">YouTube</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-kicker">Research collaboration board</div>
+            <h1>Projects for collaborators, junior researchers, and students</h1>
+            <p>Browse open directions in numerical PDEs, entropy-stable schemes, AI-assisted solvers, and scientific computing education. Each item is designed to be concrete enough to start a conversation.</p>
+            <div class="hero-actions">
+                <a class="button gold" href="mailto:pkpandey@rnc.amity.edu?subject=Project%20collaboration%20proposal">Propose Collaboration</a>
+                <a class="button light" href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">Visit YouTube Channel</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+        <section>
+            <div class="section-title">
+                <h2>Project Board</h2>
+                <p id="project-count" class="status-line">Showing all projects</p>
+            </div>
+
+            <div class="filter-row" aria-label="Project filters">
+                <button class="filter-btn active" type="button" data-filter="all">All</button>
+                <button class="filter-btn" type="button" data-filter="junior">Junior Researcher</button>
+                <button class="filter-btn" type="button" data-filter="collaboration">Collaboration</button>
+                <button class="filter-btn" type="button" data-filter="code">Code</button>
+                <button class="filter-btn" type="button" data-filter="video">Video</button>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card" data-tags="junior code collaboration">
+                    <div class="tag-row"><span class="tag gold">Good first project</span><span class="tag">Python/MATLAB</span></div>
+                    <h3>Reproduce a scalar conservation law benchmark</h3>
+                    <p>Build a clean experiment for linear advection or Burgers equation and compare numerical diffusion across schemes.</p>
+                    <ul>
+                        <li>Deliverable: plots, error table, short note</li>
+                        <li>Skills: CFL condition, grids, convergence</li>
+                    </ul>
+                    <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=Benchmark%20project">Discuss Project</a>
+                </article>
+
+                <article class="project-card" data-tags="collaboration code">
+                    <div class="tag-row"><span class="tag">Research</span><span class="tag">Validation</span></div>
+                    <h3>Entropy-stable method comparison suite</h3>
+                    <p>Create reproducible tests comparing stability, resolution, and computational cost for selected entropy-aware schemes.</p>
+                    <ul>
+                        <li>Deliverable: benchmark repository</li>
+                        <li>Skills: finite volume methods, stability</li>
+                    </ul>
+                    <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=Entropy-stable%20benchmark%20suite">Collaborate</a>
+                </article>
+
+                <article class="project-card" data-tags="collaboration code">
+                    <div class="tag-row"><span class="tag">AI</span><span class="tag">Scientific ML</span></div>
+                    <h3>Learning numerical viscosity without losing structure</h3>
+                    <p>Explore how learned viscosity can support robust solvers while respecting conservation and stability constraints.</p>
+                    <ul>
+                        <li>Deliverable: prototype and ablation study</li>
+                        <li>Skills: PyTorch, PDE benchmarks, metrics</li>
+                    </ul>
+                    <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=AI%20viscosity%20collaboration">Start Conversation</a>
+                </article>
+
+                <article class="project-card" data-tags="junior video">
+                    <div class="tag-row"><span class="tag gold">Student friendly</span><span class="tag">Teaching</span></div>
+                    <h3>Mini lecture notes for numerical PDE beginners</h3>
+                    <p>Turn core numerical PDE ideas into short notes and matching YouTube explainers for junior researchers.</p>
+                    <ul>
+                        <li>Deliverable: notes + short videos</li>
+                        <li>Skills: LaTeX, examples, communication</li>
+                    </ul>
+                    <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=Numerical%20PDE%20lecture%20notes">Contribute</a>
+                </article>
+
+                <article class="project-card" data-tags="collaboration">
+                    <div class="tag-row"><span class="tag">Quantum-inspired</span><span class="tag">Exploratory</span></div>
+                    <h3>Quantum-inspired perspectives on numerical schemes</h3>
+                    <p>Map useful quantum-algorithm concepts to classical numerical workflows and identify realistic research questions.</p>
+                    <ul>
+                        <li>Deliverable: survey note or pilot experiment</li>
+                        <li>Skills: algorithms, numerical analysis</li>
+                    </ul>
+                    <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=Quantum-inspired%20scientific%20computing">Explore</a>
+                </article>
+
+                <article class="project-card" data-tags="code video junior">
+                    <div class="tag-row"><span class="tag">Open education</span><span class="tag">YouTube</span></div>
+                    <h3>Code walkthrough playlist</h3>
+                    <p>Prepare short videos that explain one numerical experiment at a time: setup, method, plot, interpretation.</p>
+                    <ul>
+                        <li>Deliverable: code + video script</li>
+                        <li>Skills: MATLAB/Python, teaching</li>
+                    </ul>
+                    <a class="button" href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">Open Channel</a>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">
+                <h2>How to Start</h2>
+            </div>
+            <div class="info-band">
+                <div class="info-panel">
+                    <h3>For junior researchers</h3>
+                    <ol>
+                        <li>Pick one small benchmark from the board.</li>
+                        <li>Reproduce one figure or one error table.</li>
+                        <li>Write a one-page note explaining what you observed.</li>
+                        <li>Email the note with your code link and one clear question.</li>
+                    </ol>
+                </div>
+                <div class="info-panel">
+                    <h3>For collaborators</h3>
+                    <ul>
+                        <li>Send a short problem statement and where your expertise connects.</li>
+                        <li>Include any preprint, code, dataset, or benchmark you want to discuss.</li>
+                        <li>Suggest a concrete first step: experiment, reading group, note, or joint seminar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">
+                <h2>YouTube Lecture Roadmap</h2>
+            </div>
+            <div class="youtube-box">
+                <div>
+                    <h2>Connect projects with public learning</h2>
+                    <p>The YouTube channel can become a bridge between research code, lecture notes, and junior researcher onboarding.</p>
+                    <div class="hero-actions">
+                        <a class="button gold" href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">Open YouTube Channel</a>
+                        <a class="button" href="mailto:pkpandey@rnc.amity.edu?subject=Suggested%20YouTube%20topic">Suggest Topic</a>
+                    </div>
+                </div>
+                <div class="lecture-list">
+                    <span>Numerical PDE basics: CFL, stability, convergence</span>
+                    <span>Research code walkthroughs: plots and benchmark design</span>
+                    <span>Scientific ML: learned viscosity and hybrid solvers</span>
+                    <span>Paper-reading sessions for junior researchers</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Prashant Kumar Pandey. Built for mathematics, collaboration, and open research learning.</p>
+        <p><a href="index.html">Back to homepage</a></p>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectCount = document.getElementById('project-count');
+
+        function filterProjects(filter) {
+            let visible = 0;
+            projectCards.forEach(card => {
+                const tags = card.getAttribute('data-tags');
+                const show = filter === 'all' || tags.includes(filter);
+                card.classList.toggle('hidden', !show);
+                if (show) visible += 1;
+            });
+            projectCount.textContent = filter === 'all'
+                ? 'Showing all projects'
+                : 'Showing ' + visible + ' project' + (visible === 1 ? '' : 's');
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(item => item.classList.remove('active'));
+                button.classList.add('active');
+                filterProjects(button.getAttribute('data-filter'));
+            });
+        });
+    </script>
+</body>
+</html>

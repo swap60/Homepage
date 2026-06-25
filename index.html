@@ -192,24 +192,25 @@
         }
 
         .nav-inner {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 16px;
             flex-wrap: wrap;
         }
 
         .nav a {
             color: rgba(255,255,255,0.9);
-            padding: 16px 22px;
+            padding: 15px 16px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             transition: all 0.3s ease;
             position: relative;
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         .nav a:hover {
@@ -231,6 +232,61 @@
         }
 
         .nav a:hover::after { width: 60%; }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            color: rgba(255,255,255,0.9);
+            padding: 15px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 500;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            min-width: 260px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+        }
+
+        .nav-dropdown-menu a:hover {
+            color: white;
+            background: var(--primary);
+        }
+
+        .nav-dropdown-menu a::after { display: none; }
 
         .theme-toggle {
             position: fixed;
@@ -1081,6 +1137,212 @@
             transform: scale(1.05);
         }
 
+        .research-hub-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .hub-panel,
+        .demo-panel,
+        .youtube-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 28px;
+        }
+
+        .hub-panel h3,
+        .demo-panel h3,
+        .youtube-panel h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text);
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .hub-panel p,
+        .demo-panel p,
+        .youtube-panel p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .opportunity-list,
+        .pathway-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .opportunity-item,
+        .pathway-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg);
+            padding: 16px;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .opportunity-item:hover,
+        .pathway-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .opportunity-item strong,
+        .pathway-item strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .collab-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .collab-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 9px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--primary);
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .collab-button.secondary {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .collab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .demo-canvas-wrap {
+            background: linear-gradient(135deg, rgba(26,95,42,0.08), rgba(201,162,39,0.14));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin: 18px 0;
+            padding: 12px;
+        }
+
+        #viscosity-canvas {
+            display: block;
+            width: 100%;
+            height: 220px;
+            border-radius: 10px;
+            background: var(--card-bg);
+        }
+
+        .demo-controls {
+            display: grid;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .demo-controls input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary);
+        }
+
+        .youtube-panel {
+            margin-top: 24px;
+        }
+
+        .youtube-dropdown {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg);
+            margin-top: 16px;
+            overflow: hidden;
+        }
+
+        .youtube-dropdown summary {
+            cursor: pointer;
+            padding: 16px 18px;
+            color: var(--text);
+            font-weight: 800;
+            list-style: none;
+        }
+
+        .youtube-dropdown summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .youtube-dropdown summary::after {
+            content: '+';
+            float: right;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .youtube-dropdown[open] summary::after {
+            content: '-';
+        }
+
+        .youtube-body {
+            border-top: 1px solid var(--border);
+            padding: 18px;
+        }
+
+        .video-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .video-plan-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            padding: 14px;
+        }
+
+        .video-plan-card strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .youtube-config {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .youtube-config input {
+            min-height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 12px;
+            background: var(--card-bg);
+            color: var(--text);
+            font: inherit;
+        }
+
+        .youtube-note {
+            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
         .footer {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #0a2a12 100%);
             color: rgba(255,255,255,0.7);
@@ -1117,6 +1379,8 @@
             .explorer-toolbar { grid-template-columns: 1fr; }
             .filter-chips { justify-content: flex-start; }
             .topic-grid { grid-template-columns: 1fr 1fr; }
+            .research-hub-grid { grid-template-columns: 1fr; }
+            .video-plan-grid { grid-template-columns: 1fr; }
             .books-wrapper { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
             .nav-inner { flex-wrap: wrap; gap: 0; }
@@ -1170,9 +1434,23 @@
                 font-size: 0.78rem;
                 white-space: normal;
             }
+            .nav-dropdown { display: contents; }
+            .nav-dropdown-toggle {
+                padding: 10px 6px;
+                font-size: 0.78rem;
+            }
+            .nav-dropdown-menu {
+                right: 8px;
+                left: 8px;
+                min-width: auto;
+            }
             .blog-grid { grid-template-columns: 1fr; }
             .quick-stats { grid-template-columns: 1fr; }
             .topic-grid { grid-template-columns: 1fr; }
+            .hub-panel,
+            .demo-panel,
+            .youtube-panel { padding: 20px; }
+            .youtube-config { grid-template-columns: 1fr; }
             .explorer-panel { padding: 20px; }
             .blog-tools { align-items: flex-start; flex-direction: column; }
             .profile-card { padding: 24px; }
@@ -1202,6 +1480,14 @@
             <a href="books.html">Books</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-toggle" type="button">YouTube ▾</button>
+                <div class="nav-dropdown-menu">
+                    <a href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">Open YouTube Channel</a>
+                    <a href="#video-hub">Lecture Roadmap</a>
+                    <a href="mailto:pkpandey@rnc.amity.edu?subject=Suggested%20YouTube%20topic">Suggest a Topic</a>
+                </div>
+            </div>
             <a href="PP-ACEDMIC CV-updated-new.pdf" target="_blank">Download CV</a>
         </div>
     </nav>
@@ -1213,6 +1499,7 @@
         <div class="hero-actions">
             <a href="#research-explorer" class="hero-action">Explore Research</a>
             <a href="#latest-thoughts" class="hero-action secondary">Read Latest Thoughts</a>
+            <a href="#collaborate" class="hero-action secondary">Collaborate</a>
         </div>
         <div class="hero-tags" aria-label="Research focus areas">
             <span>Hyperbolic PDEs</span>
@@ -1363,6 +1650,119 @@
 
             <p id="topic-empty" class="empty-state" hidden>No matching topics yet.</p>
         </div>
+
+        <div class="section-header" id="collaborate">
+            <div class="icon">🤝</div>
+            <h2>Collaborate With Me</h2>
+        </div>
+
+        <div class="research-hub-grid">
+            <section class="hub-panel">
+                <h3>Open Research Directions</h3>
+                <p>I welcome conversations with researchers, PhD scholars, junior faculty, and motivated students around rigorous, reproducible scientific computing.</p>
+                <div class="opportunity-list">
+                    <div class="opportunity-item">
+                        <strong>Entropy-stable schemes for nonlinear PDEs</strong>
+                        Structure-preserving methods, benchmark problems, and stability-focused numerical experiments.
+                    </div>
+                    <div class="opportunity-item">
+                        <strong>AI-assisted numerical viscosity</strong>
+                        Hybrid solvers where machine learning supports, rather than replaces, mathematical structure.
+                    </div>
+                    <div class="opportunity-item">
+                        <strong>Quantum-inspired scientific computing</strong>
+                        Exploratory algorithms that connect quantum ideas with classical numerical schemes.
+                    </div>
+                    <div class="opportunity-item">
+                        <strong>Reproducible PDE code and teaching material</strong>
+                        Clean MATLAB/Python notebooks, lecture notes, and validation datasets for junior researchers.
+                    </div>
+                </div>
+                <div class="collab-actions">
+                    <a class="collab-button" href="mailto:pkpandey@rnc.amity.edu?subject=Research%20collaboration%20proposal">Start a Collaboration</a>
+                    <a class="collab-button secondary" href="projects.html">View Project Board</a>
+                </div>
+            </section>
+
+            <aside class="hub-panel">
+                <h3>For Junior Researchers</h3>
+                <p>A compact pathway for students who want to enter numerical PDEs and scientific machine learning.</p>
+                <div class="pathway-list">
+                    <div class="pathway-item">
+                        <strong>1. Build foundations</strong>
+                        Linear algebra, ODE/PDE basics, finite difference and finite volume methods.
+                    </div>
+                    <div class="pathway-item">
+                        <strong>2. Reproduce a benchmark</strong>
+                        Start with advection, Burgers equation, heat equation, or a scalar conservation law.
+                    </div>
+                    <div class="pathway-item">
+                        <strong>3. Write like a researcher</strong>
+                        Keep a short experiment log: method, grid, CFL, error, stability, and interpretation.
+                    </div>
+                    <div class="pathway-item">
+                        <strong>4. Share your result</strong>
+                        Send a two-page note, GitHub link, or concise question for feedback.
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <div class="section-header">
+            <div class="icon">∂t</div>
+            <h2>Numerical Viscosity Playground</h2>
+        </div>
+
+        <section class="demo-panel">
+            <h3>See how viscosity changes a solution profile</h3>
+            <p>This lightweight canvas demo gives visitors a quick intuition for one of your research themes: too little viscosity creates oscillations, while too much viscosity smears important structure.</p>
+            <div class="demo-canvas-wrap">
+                <canvas id="viscosity-canvas" width="920" height="260" aria-label="Interactive numerical viscosity curve"></canvas>
+            </div>
+            <div class="demo-controls">
+                <label for="viscosity-slider">Numerical viscosity: <strong id="viscosity-value">0.35</strong></label>
+                <input id="viscosity-slider" type="range" min="0" max="100" value="35">
+                <span id="viscosity-note">Balanced: captures the front while damping spurious oscillations.</span>
+            </div>
+        </section>
+
+        <div class="section-header" id="video-hub">
+            <div class="icon">▶</div>
+            <h2>YouTube & Learning Hub</h2>
+        </div>
+
+        <section class="youtube-panel">
+            <h3>Video lectures and explainers</h3>
+            <p>Your YouTube channel is now available from the navigation dropdown and this learning hub, so visitors can move from the homepage to lectures quickly.</p>
+            <details class="youtube-dropdown" open>
+                <summary>Open YouTube channel and planned lecture tracks</summary>
+                <div class="youtube-body">
+                    <div class="collab-actions">
+                        <a class="collab-button" href="https://www.youtube.com/@prashantpandey7797" target="_blank" rel="noopener">Visit YouTube Channel</a>
+                        <a class="collab-button secondary" href="mailto:pkpandey@rnc.amity.edu?subject=Suggested%20YouTube%20topic">Suggest a Lecture Topic</a>
+                    </div>
+                    <div class="video-plan-grid">
+                        <div class="video-plan-card">
+                            <strong>Numerical PDE Basics</strong>
+                            Short explainers on discretization, CFL condition, stability, and convergence.
+                        </div>
+                        <div class="video-plan-card">
+                            <strong>Research Code Walkthroughs</strong>
+                            Reproducible MATLAB/Python experiments for schemes, plots, and benchmark tests.
+                        </div>
+                        <div class="video-plan-card">
+                            <strong>AI for Scientific Computing</strong>
+                            Practical notes on neural surrogates, learned viscosity, and responsible hybrid solvers.
+                        </div>
+                    </div>
+                    <div class="youtube-config">
+                        <input id="youtube-channel-url" type="url" value="https://www.youtube.com/@prashantpandey7797" aria-label="YouTube channel URL">
+                        <button class="collab-button" type="button" id="open-youtube-input">Open Link</button>
+                    </div>
+                    <p class="youtube-note">This field lets you test or replace the channel URL quickly while editing the site. The public channel button already points to your confirmed channel.</p>
+                </div>
+            </details>
+        </section>
 
         <div class="section-header" id="latest-thoughts">
             <div class="icon">✍️</div>
@@ -1785,6 +2185,105 @@
 
         document.querySelectorAll('.stat-number').forEach(stat => statObserver.observe(stat));
 
+        // ===== NUMERICAL VISCOSITY PLAYGROUND =====
+        const viscosityCanvas = document.getElementById('viscosity-canvas');
+        const viscositySlider = document.getElementById('viscosity-slider');
+        const viscosityValue = document.getElementById('viscosity-value');
+        const viscosityNote = document.getElementById('viscosity-note');
+
+        function drawViscosityProfile() {
+            if (!viscosityCanvas) return;
+
+            const ctx = viscosityCanvas.getContext('2d');
+            const width = viscosityCanvas.width;
+            const height = viscosityCanvas.height;
+            const viscosity = Number(viscositySlider.value) / 100;
+            const padding = 28;
+
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--card-bg').trim() || '#fff';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.strokeStyle = 'rgba(107, 114, 128, 0.25)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 4; i++) {
+                const y = padding + i * ((height - 2 * padding) / 4);
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+                ctx.stroke();
+            }
+
+            ctx.strokeStyle = 'rgba(26, 95, 42, 0.28)';
+            ctx.setLineDash([6, 7]);
+            ctx.beginPath();
+            ctx.moveTo(width * 0.53, padding);
+            ctx.lineTo(width * 0.53, height - padding);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            function profile(x) {
+                const shock = Math.tanh((0.53 - x) / (0.035 + 0.12 * viscosity));
+                const oscillation = Math.sin(70 * x) * Math.exp(-Math.abs(x - 0.53) * (9 + 24 * viscosity)) * (0.24 * (1 - viscosity));
+                const wave = 0.14 * Math.sin(2 * Math.PI * (x + 0.08));
+                return 0.5 + 0.28 * shock + oscillation + wave;
+            }
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = '#c9a227';
+            ctx.beginPath();
+            for (let i = 0; i <= 520; i++) {
+                const x = i / 520;
+                const px = padding + x * (width - 2 * padding);
+                const py = height - padding - profile(x) * (height - 2 * padding);
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#1a5f2a';
+            ctx.beginPath();
+            for (let i = 0; i <= 520; i++) {
+                const x = i / 520;
+                const exact = 0.5 + 0.28 * Math.tanh((0.53 - x) / 0.04) + 0.14 * Math.sin(2 * Math.PI * (x + 0.08));
+                const px = padding + x * (width - 2 * padding);
+                const py = height - padding - exact * (height - 2 * padding);
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#6b7280';
+            ctx.font = '14px Inter, sans-serif';
+            ctx.fillText('reference', padding + 8, padding + 18);
+            ctx.fillStyle = '#c9a227';
+            ctx.fillText('viscous numerical profile', padding + 8, padding + 38);
+
+            viscosityValue.textContent = viscosity.toFixed(2);
+            if (viscosity < 0.22) {
+                viscosityNote.textContent = 'Low viscosity: sharper front, but oscillations can appear near discontinuities.';
+            } else if (viscosity > 0.68) {
+                viscosityNote.textContent = 'High viscosity: oscillations are damped, but the front becomes overly diffused.';
+            } else {
+                viscosityNote.textContent = 'Balanced: captures the front while damping spurious oscillations.';
+            }
+        }
+
+        if (viscositySlider) {
+            viscositySlider.addEventListener('input', drawViscosityProfile);
+            drawViscosityProfile();
+        }
+
+        const openYoutubeInput = document.getElementById('open-youtube-input');
+        const youtubeChannelInput = document.getElementById('youtube-channel-url');
+        if (openYoutubeInput && youtubeChannelInput) {
+            openYoutubeInput.addEventListener('click', () => {
+                const url = youtubeChannelInput.value.trim();
+                if (url) window.open(url, '_blank', 'noopener,noreferrer');
+            });
+        }
+
         // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1795,7 +2294,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.blog-card, .book-item, .books-panel, .stat-card, .topic-card').forEach(el => {
+        document.querySelectorAll('.blog-card, .book-item, .books-panel, .stat-card, .topic-card, .hub-panel, .demo-panel, .youtube-panel').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease, border-color 0.25s ease';
