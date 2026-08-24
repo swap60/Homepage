@@ -1,4 +1,3 @@
-
 /**
  * Lightweight BibTeX Parser
  * Parses .bib files into JavaScript objects
@@ -6,7 +5,7 @@
 function parseBibtex(bibtexText) {
     const entries = [];
     const entryRegex = /@(\w+)\s*\{\s*([^,]+)\s*,\s*([\s\S]*?)\n\s*\}/g;
-    const fieldRegex = /(\w+)\s*=\s*\{([\s\S]*?)\}(?=\s*,\s*\w+\s*=|\s*\n\s*\})/g;
+    const fieldRegex = /(\w+)\s*=\s*\{([\s\S]*?)\}(?=\s*,\s*\w+\s*=|\s*$)/g;
     
     let match;
     while ((match = entryRegex.exec(bibtexText)) !== null) {
